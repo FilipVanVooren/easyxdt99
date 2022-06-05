@@ -8,12 +8,3 @@ if [ -f "BANNER" ]; then
 else
     exit 255
 fi
-
-
-if [ "$*" = "" ]; then
-    if [ -f "README" ]; then
-        cat README
-    fi
-else
-    exec "$@"
-fi
