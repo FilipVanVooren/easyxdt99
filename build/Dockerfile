@@ -23,22 +23,14 @@ ENV pyver=$PYVERSION
 
 
 #
-# Create app user on Clear Linux OS
+# Prepare shell and create app user on Debian, Alpine, ...
 #
-RUN . /etc/os-release &&                                              \
-    [ "$ID" = "clear-linux-os" ] && swupd bundle-add wget || true &&  \
-    [ "$ID" = "clear-linux-os" ] && groupadd -g 1000 app || true &&   \
-    [ "$ID" = "clear-linux-os" ] && useradd -u 1000 -g 1000 -m -d /app -s /bin/bash app || true
-
-
-#
-# Create app user on Debian, Alpine, ...
-#
-RUN . /etc/os-release &&                                                 \
-    [ "$ID" != "clear-linux-os" ] && addgroup --gid 1000 app || true &&  \
-    [ "$ID" != "clear-linux-os" ] && adduser -u 1000 --ingroup app --home /app --disabled-password --shell /bin/bash app || true
-
-
+RUN . /etc/os-release && \
+    [ "$ID" == "alpine" ] && apk update   || true && \
+    [ "$ID" == "alpine" ] && apk upgrade  || true && \
+    [ "$ID" == "alpine" ] && apk add bash || true && \
+    addgroup --gid 1000 app || true &&  \
+    adduser -u 1000 --ingroup app --home /app --disabled-password --shell /bin/bash app || true
 
 #
 # Install xdt99 package in target directory /app/xdt99

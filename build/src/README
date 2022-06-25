@@ -13,8 +13,9 @@ xdm99  - Disk manager for sector-based TI disk images
 xhm99  - Manager for HFE images used by HxC floppy emulators
 xvm99  - Volume manager for nanoPEB/CF7+ Compact Flash cards
 
+--------------------------------------------------------------------------------
 
-EASY-XDT99 is a docker compatible container image with a python interpreter
+EASYXDT99 is a docker compatible container image with a python interpreter
 and some wrapper glue for easy access to the xdt99 command-line utilities.
 It is meant to be an easy way to deploy xdt99 to multiple platforms without
 doing manual software installation of the software and its dependencies.
