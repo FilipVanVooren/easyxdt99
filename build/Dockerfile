@@ -23,9 +23,12 @@ ENV pyver=$PYVERSION
 
 
 #
-# Create app user on Debian, Alpine, ...
+# Prepare shell and create app user on Debian, Alpine, ...
 #
-RUN . /etc/os-release &&                \
+RUN . /etc/os-release && \
+    [ "$ID" == "alpine" ] && apk update   || true && \
+    [ "$ID" == "alpine" ] && apk upgrade  || true && \
+    [ "$ID" == "alpine" ] && apk add bash || true && \
     addgroup --gid 1000 app || true &&  \
     adduser -u 1000 --ingroup app --home /app --disabled-password --shell /bin/bash app || true
 
