@@ -11,12 +11,12 @@ FROM ${PYIMAGE}:${PYVERSION}
 #
 ARG PYIMAGE
 ARG PYVERSION
-ARG VERSION=3.5.0
+ARG XDTVERSION=3.5.0
 
 #
 # Environment
 #
-ENV xdt99=$VERSION
+ENV xdt99=$XDTVERSION
 ENV easyxdt99=1.0.1
 ENV pyimage="${PYIMAGE}:${PYVERSION}"
 ENV pyver=$PYVERSION
@@ -26,9 +26,9 @@ ENV pyver=$PYVERSION
 # Prepare shell and create app user on Debian, Alpine, ...
 #
 RUN . /etc/os-release && \
-    [ "$ID" == "alpine" ] && apk update   || true && \
-    [ "$ID" == "alpine" ] && apk upgrade  || true && \
-    [ "$ID" == "alpine" ] && apk add bash || true && \
+    [ "$ID" = "alpine" ] && apk update   || true && \
+    [ "$ID" = "alpine" ] && apk upgrade  || true && \
+    [ "$ID" = "alpine" ] && apk add bash || true && \
     addgroup --gid 1000 app || true &&  \
     adduser -u 1000 --ingroup app --home /app --disabled-password --shell /bin/bash app || true
 
@@ -44,7 +44,7 @@ RUN echo ">>> Building XDT99 version ${VERSION} on Python image ${PYIMAGE}:${PYV
 #
 # Copy and unpacks xdt99 source package
 #
-ADD --chown=app ./.filecache/xdt99-${VERSION}.tar.gz /app
+ADD --chown=app ./.filecache/xdt99-${XDTVERSION}.tar.gz /app
 
 #
 # Install convenience wrapper scripts

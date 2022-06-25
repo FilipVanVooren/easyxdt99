@@ -2,6 +2,8 @@ XDT99
 https://github.com/endlos99/xdt99
 
 
+From the author:
+
 The TI 99 Cross-Development Tools (xdt99) are a small suite of programs that
 facilitate the development of programs for the TI 99 family of home computers
 on modern computer systems:
@@ -22,4 +24,4 @@ and some wrapper glue for easy access to the xdt99 command-line utilities.
 It is meant to be an easy way to deploy xdt99 to multiple platforms without
 doing manual software installation of the software and its dependencies.
 
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
