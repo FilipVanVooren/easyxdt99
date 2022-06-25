@@ -23,39 +23,29 @@ ENV pyver=$PYVERSION
 
 
 #
-# Create app user on Clear Linux OS
-#
-RUN . /etc/os-release &&                                              \
-    [ "$ID" = "clear-linux-os" ] && swupd bundle-add wget || true &&  \
-    [ "$ID" = "clear-linux-os" ] && groupadd -g 1000 app || true &&   \
-    [ "$ID" = "clear-linux-os" ] && useradd -u 1000 -g 1000 -m -d /app -s /bin/bash app || true
-
-
-#
 # Create app user on Debian, Alpine, ...
 #
-RUN . /etc/os-release &&                                                 \
-    [ "$ID" != "clear-linux-os" ] && addgroup --gid 1000 app || true &&  \
-    [ "$ID" != "clear-linux-os" ] && adduser -u 1000 --ingroup app --home /app --disabled-password --shell /bin/bash app || true
-
-
+RUN . /etc/os-release &&                \
+    addgroup --gid 1000 app || true &&  \
+    adduser -u 1000 --ingroup app --home /app --disabled-password --shell /bin/bash app || true
 
 #
-# Install xdt99 package in target directory /app/xdt99
+# Install some python tools
 #
 USER app
 WORKDIR /app
 RUN echo ">>> Building XDT99 version ${VERSION} on Python image ${PYIMAGE}:${PYVERSION}"              \
     && echo ">>> STEP 1: pip install some modules...."                                                \
-    && mkdir -p /app/xdt99                                                                            \
-    && python3 -m pip install --upgrade --disable-pip-version-check --no-warn-script-location pip setuptools wheel \
-    && echo ">>> STEP 2: Get xdt99 source code...."                                                   \
-    && wget -q https://github.com/endlos99/xdt99/releases/download/${VERSION}/xdt99-${VERSION}.tar.gz \
-    && echo "STEP 3 >>>: xdt99 source code successfully fetched"
+    && python3 -m pip install --upgrade --disable-pip-version-check --no-warn-script-location pip setuptools wheel
 
-RUN tar --strip-components=1 -xvf xdt99-${VERSION}.tar.gz -C /app/xdt99  \
-    && rm -rf xdt99-${VERSION}.tar.gz .wget-hsts
+#
+# Copy and unpacks xdt99 source package
+#
+ADD --chown=app ./.filecache/xdt99-${VERSION}.tar.gz /app
 
+#
+# Install convenience wrapper scripts
+#
 COPY --chown=app src/* /app/
 
 ENTRYPOINT [ "/app/entrypoint.sh" ]

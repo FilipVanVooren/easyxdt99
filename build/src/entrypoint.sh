@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 export PATH="/app:/app/.local/bin:$PATH"
 
+# shellcheck disable=SC1091
 . /etc/os-release
 
 if [ -f "BANNER" ]; then
