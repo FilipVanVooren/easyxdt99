@@ -7,6 +7,4 @@ if [ -f "BANNER" ]; then
     echo "XDT99 $xdt99 / EASY-XDT99 $easyxdt99 / Python $pyver / $PRETTY_NAME"
     echo
     echo
-else
-    exit 255
 fi
