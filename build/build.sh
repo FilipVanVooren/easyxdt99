@@ -31,7 +31,8 @@ else
 
   elif [ "${#exist_curl}" -gt "0" ]; then
     echo "Getting xdt99 source package from github using curl"
-    curl -s -o ".filecache/${xdt99tar}" \
+
+    curl -L -o ".filecache/${xdt99tar}" \
       "https://github.com/endlos99/xdt99/releases/download/${xdtversion}/${xdt99tar}"
 
   else
