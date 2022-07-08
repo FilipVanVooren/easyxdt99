@@ -20,7 +20,7 @@ ENV xdt99=$XDTVERSION
 ENV easyxdt99=1.0.1
 ENV pyimage="${PYIMAGE}:${PYVERSION}"
 ENV pyver=$PYVERSION
-
+ENV PATH="/app/xdt99-${XDTVERSION}:$PATH"
 
 #
 # Prepare shell and create app user on Debian, Alpine, ...

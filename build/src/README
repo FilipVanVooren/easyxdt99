@@ -1,4 +1,4 @@
-XDT99
+XDT99 by Ralph Benzinger
 https://github.com/endlos99/xdt99
 
 
@@ -8,20 +8,22 @@ The TI 99 Cross-Development Tools (xdt99) are a small suite of programs that
 facilitate the development of programs for the TI 99 family of home computers
 on modern computer systems:
 
-xas99  - TMS9900 cross-assembler
-xga99  - GPL cross-assembler
-xbas99 - TI BASIC and TI Extended BASIC lister and encoder
-xda99  - TMS9900 disassembler
-xdg99  - GPL disassembler
-xdm99  - Disk manager for sector-based TI disk images
-xhm99  - Manager for HFE images used by HxC floppy emulators
-xvm99  - Volume manager for nanoPEB/CF7+ Compact Flash cards
+xas99.py  - TMS9900 cross-assembler
+xga99.py  - GPL cross-assembler
+xbas99.py - TI BASIC and TI Extended BASIC lister and encoder
+xda99.py  - TMS9900 disassembler
+xdg99.py  - GPL disassembler
+xdm99.py  - Disk manager for sector-based TI disk images
+xhm99.py  - Manager for HFE images used by HxC floppy emulators
+xvm99.py  - Volume manager for nanoPEB/CF7+ Compact Flash cards
 
 --------------------------------------------------------------------------------
+
+EASYXDT99 by Filip Van Vooren
 
 EASYXDT99 is a docker compatible container image with a python interpreter
 and some wrapper glue for easy access to the xdt99 command-line utilities.
 It is meant to be an easy way to deploy xdt99 to multiple platforms without
-doing manual software installation of the software and its dependencies.
+doing manual software installation of Python, xdt99 and its dependencies.
 
 --------------------------------------------------------------------------------

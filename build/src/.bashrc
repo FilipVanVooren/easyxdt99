@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 export PATH="/app:/app/.local/bin:$PATH"
 
+alias ll='ls --color=auto -al'
+
 if [ -f "/app/BANNER" ]; then
     cat /app/BANNER
     # shellcheck disable=SC2154
