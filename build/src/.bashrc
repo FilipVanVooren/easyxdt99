@@ -6,7 +6,7 @@ alias ll='ls --color=auto -al'
 if [ -f "/app/BANNER" ]; then
     cat /app/BANNER
     # shellcheck disable=SC2154
-    echo "XDT99 $xdt99 / EASY-XDT99 $easyxdt99 / Python $pyver / $PRETTY_NAME"
+    echo "XDT99 $xdt99 / EASY-XDT99 $easyxdt99 / Python $pyver"
     echo
     echo
 fi
