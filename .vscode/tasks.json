@@ -1,0 +1,56 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Assemble TMS9900 project with xas99.py",
+            "type": "shell",
+            "command": "bash buildall.sh",
+
+            "options": {
+                "cwd": "${workspaceFolder}/stevie/build",
+                "env": {
+                    "MY_ENV": "production"
+                }
+            },
+            "problemMatcher":
+                {
+                    "owner":"xas99",
+                    // File name for reported problems,
+                    // is relative to the opened folder.
+                    "fileLocation": ["relative",
+                                     "${workspaceFolder}/stevie/src/modules"],
+                    "pattern":
+                    [
+                        {
+                        // First line of error message
+                        "regexp": "^>\\s(.+)\\s<(\\d+)>\\s(\\d+)\\s-.*",
+                        // First match group matches filename which is relative.
+                        "file": 1,
+                        // Second match group matches problem line.
+                        "line": 3,
+                        // Third match group matches column of problem line
+                        "column": 1,
+                        // Problem severity
+                        },
+                        {
+                        // Second line of error message
+                        "regexp": "^\\*+\\sError:\\s(.+)",
+                        // The fifth match group matches the message.
+                        "message": 1
+                        }
+                    ],
+                },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            }
+        }
+    ]
+}
