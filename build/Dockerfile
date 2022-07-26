@@ -20,7 +20,7 @@ ENV xdt99=$XDTVERSION
 ENV easyxdt99=1.0.1
 ENV pyimage="${PYIMAGE}:${PYVERSION}"
 ENV pyver=$PYVERSION
-ENV PATH="/app/xdt99-${XDTVERSION}:$PATH"
+ENV PATH="/app/xdt99:$PATH"
 
 #
 # Prepare shell and create app user on Debian, Alpine, ...
@@ -45,6 +45,7 @@ RUN echo ">>> Building XDT99 version ${VERSION} on Python image ${PYIMAGE}:${PYV
 # Copy and unpacks xdt99 source package
 #
 ADD --chown=app ./.filecache/xdt99-${XDTVERSION}.tar.gz /app
+RUN mv /app/xdt99-${XDTVERSION} /app/xdt99
 
 #
 # Install convenience wrapper scripts

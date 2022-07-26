@@ -21,7 +21,7 @@ xvm99.py  - Volume manager for nanoPEB/CF7+ Compact Flash cards
 
 EASYXDT99 by Filip Van Vooren
 
-EASYXDT99 is a docker compatible container image with a python interpreter
+EASYXDT99 is a docker compatible container image with a python3 interpreter
 and some wrapper glue for easy access to the xdt99 command-line utilities.
 It is meant to be an easy way to deploy xdt99 to multiple platforms without
 doing manual software installation of Python, xdt99 and its dependencies.

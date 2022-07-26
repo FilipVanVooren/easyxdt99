@@ -10,3 +10,8 @@ if [ -f "/app/BANNER" ]; then
     echo
     echo
 fi
+if [ "$*" = "" ]; then
+    if [ -f "/app/README" ]; then
+        cat /app/README
+    fi
+fi
