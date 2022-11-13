@@ -7,8 +7,7 @@
 		"context": "..",
 		"args": {
 			// Update 'VARIANT' to match your XDT, Python and OS version
-			// "VARIANT": "3.5.0-cpython3.11-rc"
-			"VARIANT": "3.5.0-cpython3.10-alpine"
+			"VARIANT": "3.5.0-cpython3.11-alpine"
 
 			// **Alpine**
 			// "VARIANT": "3.5.0-cpython3.10-alpine"
