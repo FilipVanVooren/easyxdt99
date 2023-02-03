@@ -2,7 +2,7 @@
 
 export PATH=.:$PATH
 
-pyver=${1:-3.10}
+pyver=${1:-3.11}
 
 # Build XDT99 3.X series on CPython 3.X-alpine image
 build.sh 3.5.0 library/python "$pyver-alpine"
